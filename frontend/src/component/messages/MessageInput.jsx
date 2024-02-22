@@ -18,13 +18,13 @@ const MessageInput = () => {
       <input
         type="text"
         placeholder="Send a message"
-        className="border  text-lg rounded-lg w-full bg-zinc-300 text-gray-700"
+        className="input  w-full  border text-lg bg-zinc-300 text-gray-700"
         value={message}
         onChange={(e)=> setMessage(e.target.value)}
       />
       <button
         type="submit"
-        className=" absolute end-0 inset-y-0 text-[100] text-[#3e7eb2] flex items-center pe-3 z-50"
+        className=" absolute end-0 inset-y-0 text-[100] text-[#3e7eb2] flex items-center pe-3 z-50 "
       >
        { loading ? <div className=" loading loading-spinner"></div> : <BiSolidSend /> }
       </button>
@@ -34,4 +34,3 @@ const MessageInput = () => {
 }
 
 export default MessageInput
-

@@ -1,6 +1,7 @@
 
     /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -30,13 +31,12 @@ const Login = () => {
             </label>
             <input type="text" placeholder="Type here" className=" w-full bg-zinc-300  input input-bordered h-10" />
           </div>
-          {/* <Link
+          <Link
             to="/signup"
             className=" text-gray-200 text-sm hover:underline hover:text-blue-600 mt-2 inline-block"
           >
            {" Don't"} have and account?
-          </Link> */}
-          <a href="#"> {"Don't"} Have Account</a>
+          </Link>
           
           <div>
           <button className="btn btn-block">Login</button>

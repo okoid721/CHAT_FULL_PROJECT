@@ -1,7 +1,8 @@
-/* eslint-disable no-unused-vars */
+
 import React, { useState } from 'react'
 import GenderCheckBox from './GenderCheckbox'
 import { Link } from 'react-router-dom'
+import useSignup from '../../hook/useSignUp';
 
 const SignUp = () => {
 
@@ -13,7 +14,7 @@ const SignUp = () => {
     gender: ""
   });
 
-  // const { loading, signup } = useSignUp();
+  const { loading, signup } = useSignup();
 
   const handleCheckBoxChange = (gender) => {
     setInputs({ ...inputs, gender });
@@ -21,8 +22,8 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // await signup(inputs);
-    console.log(inputs)
+    await signup(inputs);
+    // console.log(inputs)
   };
   return (
     <div> 

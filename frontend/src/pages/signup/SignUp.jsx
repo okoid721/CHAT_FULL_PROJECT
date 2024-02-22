@@ -107,11 +107,11 @@ const SignUp = () => {
  
     <div>
       <button className="btn btn-block">Sign Up
-        {/* {loading ? (
+        {loading ? (
           <span className=" loading loading-spinner"></span>
         ) : (
-          "Sighip"
-        )} */}
+          "Signup"
+        )}
       </button>
     </div>
   </form>

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import useLogin from "../../hook/useLogin";
 
 
 const Login = () => {
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { loading, login } = useLogin();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(username, password);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="h-full w-full bg-red-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-0 border border-gray-100 ">
@@ -10,16 +22,16 @@ const Login = () => {
           Login
           <span className=" text-blue-500">Easy Text</span>
         </h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label className=" label p-2">
               <span className=" text-white text-base label-text">Username</span>
             </label>
             <input
               type="text"
-            //   value={username}
+               value={username}
               placeholder="Enter username"
-            //   onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value)}
               className="w-full bg-zinc-300  input input-bordered h-10"
             />
           </div>
@@ -27,7 +39,10 @@ const Login = () => {
             <label htmlFor="Username" className=" label">
               <span className=" text-base  text-white label-text">Password</span>
             </label>
-            <input type="text" placeholder="Type here" className=" w-full bg-zinc-300  input input-bordered h-10" />
+            <input type="password"
+             value={password}
+              placeholder="Type here" className=" w-full bg-zinc-300  input input-bordered h-10" 
+              onChange={(e) => setPassword(e.target.value)}/>
           </div>
           <Link
             to="/signup"
@@ -37,7 +52,11 @@ const Login = () => {
           </Link>
           
           <div>
-          <button className="btn btn-block">Login</button>
+          <button className="btn btn-block"> {loading ? (
+                    <span className="loading loading-spinner"></span>
+                  ) : (
+                    "Login"
+                  )}</button>
           </div>
         </form>
       </div>

@@ -2,14 +2,14 @@
 import React, {useState} from 'react'
 import { BsFillSearchHeartFill } from "react-icons/bs";
 import useConversation from '../../zustand/useConversation'
-import useGetConversation from '../../hook/useGetConversation'
+import useGetConversations from '../../hook/useGetConversations'
 import toast from 'react-hot-toast'
 
 
 const SearchInput = () => {
   const [search, setSearch] = useState("")
   const {setSelectedConversation} = useConversation()
-  const {conversations} = useGetConversation()
+  const {conversations} = useGetConversations()
 
 const handleSubmit = (e) =>{
     e.preventDefault()
@@ -17,7 +17,7 @@ const handleSubmit = (e) =>{
       if(search.length < 3){
       return toast.error("Search must be at least 3 character Long")
     }
-    const conversation = conversations.find((e)=> e.fullName.toLowerCase().include(search.toLowerCase()))
+    const conversation = conversations.find((e)=> e.fullName.toLowerCase().includes(search.toLowerCase()))
     if(conversation) {
       setSelectedConversation(conversation)
       setSearch('');

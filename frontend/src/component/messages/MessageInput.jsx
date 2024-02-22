@@ -15,7 +15,7 @@ const MessageInput = () => {
         type="submit"
         className=" absolute end-0 inset-y-0 text-[100] text-[#3e7eb2] flex items-center pe-3 z-50"
       >
-        {/* <BiSolidSend /> */}
+        <BiSolidSend />
       </button>
     </div>
   </form>

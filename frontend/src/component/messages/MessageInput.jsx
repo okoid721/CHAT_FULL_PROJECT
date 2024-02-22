@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { BiSolidSend } from "react-icons/bi";
-import { TbMessages } from "react-icons/tb";
+
 const MessageInput = () => {
   return (
     <form className="px-4 my-4">

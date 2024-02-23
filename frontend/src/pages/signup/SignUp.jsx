@@ -27,7 +27,7 @@ const SignUp = () => {
   };
   return (
     <div> 
-    <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
+    <div className=" flex flex-col items-center justify-center min-w-96 mx-auto">
 <div className="h-full w-full bg-red-900 rounded-md bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-0 border border-gray-100 p-6">
   <h1 className=" text-3xl font-semibold text-center text-gray-300">
     Sign Up

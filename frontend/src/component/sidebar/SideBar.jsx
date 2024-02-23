@@ -1,22 +1,22 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import SearchInput from './SearchInput'
-import Conversations from './Conversations'
-import LogoutButton from './LogoutButton'
+import React from 'react';
+import SearchInput from './SearchInput';
+import Conversations from './Conversations';
+import LogoutButton from './LogoutButton';
 
-const SideBar = () => {
+const SideBar = ({ showChat, handleToggle }) => {
   return (
-    <div>
-       <div>
-         <div className=" border-r border-slate-500 p-4 flex flex-col">
-      <SearchInput />
-      <div className=" divider px-3" />
-      <Conversations />
-      <LogoutButton />
-    </div>
-    </div>
-    </div>
-  )
-}
+      <div>
+      {!showChat ? (
+        <div className="leftside border-r border-blue-600 p-4 flex flex-col">
+          <SearchInput />
+          <div className="divider px-3"></div>
+          <Conversations showChat={showChat} handleToggle={handleToggle} />
+          <LogoutButton />
+        </div>
+      ) : null}
+      </div>
+  );
+};
 
-export default SideBar
+export default SideBar;

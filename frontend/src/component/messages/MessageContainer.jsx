@@ -5,8 +5,9 @@ import MessageInput from "./MessageInput";
 import { TbMessages } from "react-icons/tb";
 import useConversation  from '../../zustand/useConversation';
 import { useAuthContext } from "../../context/AuthContext";
+import { FaLeftLong } from "react-icons/fa6";
 
-const MessageContainer = () => {
+const MessageContainer = ({ showChat, handleToggle }) => {
    const {selectedConversation, setSelectedConversation}= useConversation();
    
    useEffect(() => {
@@ -14,14 +15,23 @@ const MessageContainer = () => {
     return () => setSelectedConversation(null)
    },[setSelectedConversation])
   return (
-    <div className=" md:min-w-[450px] flex flex-col">
+    <div
+      className={
+        showChat
+          ? "w-[100%] flex-col flex"
+          : "w-[100%]  flex-col hidden lg:flex"
+      }
+    >
       {!selectedConversation ? (
         <NoChatSelected />
       ) : ( 
         <>
-          <div className=" bg-slate-500 px-4 py-3 mb-2">
-            <span className=" label-text">To:</span>
-            <span className="text-gray-900 font-bold">Coder Dave </span>
+       <div className="bg-blue-600 px-4 flex items-center gap-3 py-2 mb-2">
+            <FaLeftLong onClick={handleToggle} className="lg:hidden" />
+            <span className="label-text">To:</span>{" "}
+            <span className="text-gray-900 font-bold">
+              {selectedConversation.fullName}
+            </span>
           </div>
           <Messages />
           <MessageInput />

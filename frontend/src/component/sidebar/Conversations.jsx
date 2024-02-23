@@ -3,7 +3,7 @@ import React from 'react'
 import Conversation from './Conversation'
 import useGetConversations from '../../hook/useGetConversations'
 
-const Conversations = () => {
+const Conversations = ({ showChat, handleToggle }) => {
   const { loading, conversations } = useGetConversations();
   return (
        <div className=" py-2 flex flex-col overflow-auto">
@@ -11,6 +11,8 @@ const Conversations = () => {
         <Conversation
           key={conversation._id}
           conversation={conversation}
+          showChat={showChat}
+          handleToggle={handleToggle}
           lastIdx={idx === conversations.length - 1}
         />
       ))}

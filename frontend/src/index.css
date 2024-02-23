@@ -59,3 +59,10 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+
+@media (max-width: 768px) {
+  .leftside {
+    width: 100%;
+    border: none;
+  }
+}
